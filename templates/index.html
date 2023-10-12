@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='restaurant.png') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <title>餐廳推薦</title>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='restaurant.png') }}" class="icon" /> 
+    <h1>I want to eat</h1>
+    <form action="/" method="post">
+        <input type="text" id="restaurant-type" name="restaurant"placeholder="Enter restaurant type" required><br><br>
+        <select id="restaurant-region" name="restaurant-region">
+            <option value="Northern Taiwan">Northern Taiwan</option>
+            <option value="Central Taiwan">Central Taiwan</option>
+            <option value="Southern Taiwan">Southern Taiwan</option>
+            <option value="Eastern Taiwan">Eastern Taiwan</option>
+            <option value="Taiwan's outlying islands">Taiwan's outlying islands</option>
+        </select><br><br>
+	<button type="submit">Generation restaurant list</button>
+    </form>
+    {% if result %}
+    <div class="result">{{ result }}</div>
+    {% endif %}
+</body>
+</html>
